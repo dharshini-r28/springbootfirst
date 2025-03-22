@@ -1,4 +1,4 @@
-package com.example.firstspring.Service;
+package com.example.firstspring;
 
 
 import org.springframework.boot.SpringApplication;
