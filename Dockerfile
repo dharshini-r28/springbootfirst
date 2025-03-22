@@ -1,22 +1,29 @@
-# Stage 1: Build the application using Maven
-FROM maven:3.8.5-openjdk-17 AS build
-WORKDIR /app
-
-# Copy Maven files first to leverage caching
-COPY pom.xml .
-RUN mvn dependency:go-offline
-
-# Copy the rest of the application source
-COPY src ./src
+# Use Maven to build the application
+FROM maven:3.8.5-openjdk-21 AS build
+COPY . .
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run the application with a lightweight JDK
-FROM openjdk:17-jdk-slim
-WORKDIR /app
-
-# Copy the built JAR file from the build stage
-COPY --from=build /app/target/*.jar app.jar
-
+# Use OpenJDK to run the application
+FROM openjdk:21.0.1-jdk-slim
+COPY --from=build /target/demo-0.0.1-SNAPSHOT.jar demo.jar
 EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "demo.jar"]
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
