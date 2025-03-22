@@ -5,5 +5,5 @@ import com.example.firstspring.entity.User;
 import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    // Additional query methods can be defined here if needed
+
 }

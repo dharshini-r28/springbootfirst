@@ -14,7 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig {
     @Autowired
-    JwtFilter jwtFilter; // Inject JwtFilter
+    JwtFilter jwtFilter;
 
 
     @Autowired
@@ -25,12 +25,12 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/user/details", "/user/create").authenticated() // Require authentication for these endpoints
+                        .requestMatchers("/user/details", "/user/create").authenticated()
                         .anyRequest().permitAll() // Allow all other requests
                 )
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Ensure stateless session management
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class); // Specify the order here
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build(); // Build the security filter chain
     }
