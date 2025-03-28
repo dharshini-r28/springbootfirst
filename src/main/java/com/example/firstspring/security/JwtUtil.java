@@ -55,6 +55,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -62,10 +63,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+
 @Component
 public class JwtUtil {
-    private String secretKey = "custom_shree_ishwar"; // Change this to a secure key
-    private long validity = 5 * 60 * 1000; // 5 minutes
+    private String secretKey = "custom_shree_ishwar";
+    private long validity = 5 * 60 * 1000;
 
 
 
