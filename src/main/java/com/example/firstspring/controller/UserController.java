@@ -38,11 +38,12 @@ public class UserController {
         return userServiceImpl.updateUser(null);
     }
 
-    @DeleteMapping(value = "/user/delete")
-    public String deleteUser()
-    {
-        return userServiceImpl.deleteUser(12);
+    @DeleteMapping("/user/delete/{id}")
+    public String deleteUser(@PathVariable int id) {
+        return userServiceImpl.deleteUser(id);
     }
+
+
 
     @GetMapping(value = "/user/details")
     public List<User> getUser()
