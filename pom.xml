@@ -41,7 +41,7 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
-		<!-- Spring Security Core (optional if using starter-security) -->
+		<!-- Spring Security Core -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
@@ -74,7 +74,7 @@
 			<version>0.9.1</version>
 		</dependency>
 
-		<!-- JAXB (for XML bindings in Java 11+) -->
+		<!-- JAXB for Java 11+ -->
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
@@ -101,7 +101,7 @@
 			<version>1.6.14</version>
 		</dependency>
 
-		<!-- Selenium (for automated testing, optional) -->
+		<!-- Selenium (optional for testing) -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -121,6 +121,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.example.firstspring.FirstspringApplication</mainClass>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
